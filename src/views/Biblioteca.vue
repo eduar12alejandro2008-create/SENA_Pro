@@ -1,42 +1,57 @@
 <template>
   <q-page>
-<q-img src="../assets/bibliotecame.jpeg" ratio="21/9">
-      <div class="absolute-bottom text-center bg-black bg-opacity-40">
-        <div class="text-h3 text-weight-bold">Biblioteca</div>
+    <div class="hero-bg bg-primary text-white q-pa-xl text-center">
+      <h1 class="q-my-none">Biblioteca</h1>
+      <p class="text-subtitle1 q-mt-sm">Centro de Recursos para el Aprendizaje</p>
+    </div>
+
+    <div class="content-section">
+      <div class="row q-col-gutter-lg items-center">
+        <div class="col-12 col-md-5">
+          <q-img src="../assets/biblioteca-p.jpeg" ratio="4/3" class="rounded-borders">
+            <template v-slot:error>
+              <div class="absolute-full flex flex-center bg-grey-3 text-grey-7">
+                <q-icon name="image" size="48px" />
+              </div>
+            </template>
+          </q-img>
+        </div>
+
+        <div class="col-12 col-md-7">
+          <h2 class="text-primary">¿Qué ofrece la Biblioteca?</h2>
+          <p class="text-body1">
+            La Biblioteca es el espacio de apoyo académico donde los aprendices pueden
+            fortalecer su proceso de formación a través de la consulta de material
+            bibliográfico y el acompañamiento de personal especializado. Entre sus
+            servicios se encuentran las consultas en sala, los préstamos a domicilio,
+            el préstamo interbibliotecario (PIP), talleres de lectura, capacitaciones,
+            acceso a TIC, asesorías en búsqueda de información y orientación para el
+            uso adecuado del catálogo bibliográfico.
+          </p>
+        </div>
       </div>
-    </q-img>
+    </div>
 
-    <div class="q-pa-lg" style="max-width: 1200px; margin: 0 auto;">
-      <h2 class="text-primary">¿Qué ofrece?</h2>
-      <p class="text-body1">
-        La Biblioteca del SENA es un espacio de apoyo académico abierto a todos los aprendices,
-        donde pueden realizar consultas en sala, solicitar préstamos a domicilio y acceder al
-        préstamo interbibliotecario (PIB) con otras instituciones. Además, ofrece talleres de
-        lectura, capacitaciones y acceso a herramientas TIC, junto con asesorías personalizadas
-        en búsqueda de información y en el uso adecuado del catálogo bibliográfico.
-      </p>
-
-      <h2 class="text-primary">Horarios de atención</h2>
-      <q-list bordered separator style="max-width: 400px;">
-        <q-item>
-          <q-item-section>Lunes a viernes</q-item-section>
-          <q-item-section side>7:00 a.m. – 10:00 a.m.</q-item-section>
+    <div class="content-section">
+      <h3 class="text-primary">Horarios de atención</h3>
+      <q-list bordered separator class="rounded-borders">
+        <q-item v-for="h in horarios" :key="h.dia">
+          <q-item-section>{{ h.dia }}</q-item-section>
+          <q-item-section side>{{ h.hora }}</q-item-section>
         </q-item>
       </q-list>
+    </div>
 
-      <h2 class="text-primary">Contacto</h2>
-      <p class="text-body1">
-        <q-icon name="phone" class="q-mr-sm" />312 584 8032
-      </p>
-
-      <h2 class="text-primary">Encargada</h2>
-      <q-card flat bordered class="q-pa-md" style="max-width: 420px;">
-        <div class="row items-center q-gutter-md">
-          <q-avatar size="70px" color="primary" text-color="white" icon="person" />
-          <div>
-            <div class="text-weight-bold">Yudith Milagros Martínez Bautista</div>
-            <div>Bibliotecaria</div>
-            <div>ymmartinez@sena.edu.co</div>
+    <div class="content-section">
+      <h3 class="text-primary">Encargado de atención</h3>
+      <q-card flat bordered class="q-pa-md">
+        <div class="row items-center q-col-gutter-md">
+          <q-avatar size="80px" color="grey-4" text-color="grey-8" icon="person" />
+          <div class="col">
+            <div class="text-weight-bold">{{ encargado.nombre }}</div>
+            <div>{{ encargado.cargo }}</div>
+            <div class="text-primary">{{ encargado.correo }}</div>
+            <div>{{ encargado.telefono }}</div>
           </div>
         </div>
       </q-card>
@@ -45,4 +60,22 @@
 </template>
 
 <script setup>
+const horarios = [
+  { dia: 'Lunes a viernes', hora: '7:00 a.m. - 10:00 a.m.' }
+]
+
+const encargado = {
+  nombre: 'Yudith Milagros Martínez Bautista',
+  cargo: 'Bibliotecaria',
+  correo: 'ymmartinez@sena.edu.co',
+  telefono: '312 584 8032'
+}
 </script>
+
+<style scoped>
+.content-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+</style>

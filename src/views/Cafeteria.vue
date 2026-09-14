@@ -1,54 +1,52 @@
 <template>
   <q-page>
-    <q-img src="../assets/cafeteria.jpeg" ratio="21/9">
-      <div class="absolute-bottom text-center bg-black bg-opacity-40">
-        <div class="text-h3 text-weight-bold">Cafetería</div>
+    <div class="hero-bg bg-primary text-white q-pa-xl text-center">
+      <h1 class="q-my-none">Cafetería</h1>
+    </div>
+
+    <div class="content-section">
+      <div class="row q-col-gutter-lg items-center">
+        <div class="col-12 col-md-5">
+          <q-img src="../assets/cafeteria.jpeg" ratio="4/3" class="rounded-borders">
+            <template v-slot:error>
+              <div class="absolute-full flex flex-center bg-grey-3 text-grey-7">
+                <q-icon name="image" size="48px" />
+              </div>
+            </template>
+          </q-img>
+        </div>
+
+        <div class="col-12 col-md-7">
+          <h2 class="text-primary">¿Qué ofrece la Cafetería?</h2>
+          <p class="text-body1">
+            La Cafetería es el espacio destinado a la alimentación dentro del centro de
+            formación, donde se presta un servicio de venta y atención al cliente para
+            que aprendices e instructores puedan tomar sus alimentos durante la jornada,
+            de acuerdo con los turnos y horarios establecidos.
+          </p>
+        </div>
       </div>
-    </q-img>
+    </div>
 
-    <div class="q-pa-lg" style="max-width: 1200px; margin: 0 auto;">
-      <h2 class="text-primary">¿Qué ofrece?</h2>
-      <p class="text-body1">
-        La Cafetería del SENA brinda atención al público con venta de comidas para los
-        aprendices, instructores y visitantes del centro, garantizando un espacio de
-        alimentación accesible dentro de las instalaciones durante la jornada académica.
-      </p>
-
-      <h2 class="text-primary">Horarios de atención</h2>
-      <q-list bordered separator style="max-width: 400px;">
-        <q-item>
-          <q-item-section>Lunes a viernes</q-item-section>
-          <q-item-section side>7:00 a.m. – 12:00 p.m.</q-item-section>
-        </q-item>
-        <q-item>
-          <q-item-section></q-item-section>
-          <q-item-section side>1:00 p.m. – 5:30 p.m.</q-item-section>
-        </q-item>
-        <q-item>
-          <q-item-section></q-item-section>
-          <q-item-section side>7:00 p.m. – 9:30 p.m.</q-item-section>
-        </q-item>
-        <q-item>
-          <q-item-section>Sábados</q-item-section>
-          <q-item-section side>7:30 a.m. – 12:00 p.m.</q-item-section>
+    <div class="content-section">
+      <h3 class="text-primary">Horarios de atención</h3>
+      <q-list bordered separator class="rounded-borders">
+        <q-item v-for="h in horarios" :key="h.dia">
+          <q-item-section>{{ h.dia }}</q-item-section>
+          <q-item-section side>{{ h.hora }}</q-item-section>
         </q-item>
       </q-list>
+    </div>
 
-      <h2 class="text-primary">Contacto</h2>
-      <p class="text-body1">
-        <q-icon name="phone" class="q-mr-sm" />322 303 8451
-      </p>
-      <p class="text-body1">
-        <q-icon name="mail" class="q-mr-sm" />lcarreno@sena.edu.com
-      </p>
-
-      <h2 class="text-primary">Encargada</h2>
-      <q-card flat bordered class="q-pa-md" style="max-width: 420px;">
-        <div class="row items-center q-gutter-md">
-          <q-avatar size="70px" color="primary" text-color="white" icon="person" />
-          <div>
-            <div class="text-weight-bold">Coordinadora de cafetería</div>
-            <div>lcarreno@sena.edu.com</div>
+    <div class="content-section">
+      <h3 class="text-primary">Encargada de atención</h3>
+      <q-card flat bordered class="q-pa-md">
+        <div class="row items-center q-col-gutter-md">
+          <q-avatar size="80px" color="grey-4" text-color="grey-8" icon="person" />
+          <div class="col">
+            <div class="text-weight-bold">{{ encargado.cargo }}</div>
+            <div class="text-primary">{{ encargado.correo }}</div>
+            <div>{{ encargado.telefono }}</div>
           </div>
         </div>
       </q-card>
@@ -57,4 +55,22 @@
 </template>
 
 <script setup>
+const horarios = [
+  { dia: 'Lunes a viernes', hora: '7:00 a.m. - 12:00 p.m. · 1:00 p.m. - 5:30 p.m. · 7:00 p.m. - 9:30 p.m.' },
+  { dia: 'Sábados', hora: '7:30 a.m. - 12:00 p.m.' }
+]
+
+const encargado = {
+  cargo: 'Coordinadora de cafetería',
+  correo: 'lcarreno@sena.edu.com',
+  telefono: '322 303 8451'
+}
 </script>
+
+<style scoped>
+.content-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+</style>
