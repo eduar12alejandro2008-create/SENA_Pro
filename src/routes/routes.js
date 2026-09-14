@@ -2,6 +2,7 @@ import biblioteca from "../views/Biblioteca.vue"
 import bienestar from "../views/Bienestar.vue"
 import Cafeteria from "../views/Cafeteria.vue"
 import coordinacion from "../views/Coordinacion.vue"
+import Enfermeria from "../views/enfermeria.vue"
 import { createRouter, createWebHashHistory } from "vue-router"
 
 const routes = [
@@ -9,6 +10,7 @@ const routes = [
     {path: '/biblioteca', component: biblioteca},
     {path: '/bienestar', component: bienestar},
     {path: '/cafeteria', component: Cafeteria},
+    {path: '/enfermeria', component: Enfermeria},
     {path: '/coordinacion', component: coordinacion}
 ]
 

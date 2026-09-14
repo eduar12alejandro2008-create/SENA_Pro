@@ -6,7 +6,7 @@
 
         
         <q-avatar>
-          <img src="/favicon.svg" alt="Logo SENA">
+          <img src="src/assets/logo-footer.png" alt="Logo SENA">
         </q-avatar>
         <q-toolbar-title class="q-ml-sm">
           SENA
@@ -19,10 +19,13 @@
           <q-route-tab to="/coordinacion" label="Coordinacion academica" />
           <q-route-tab to="/biblioteca" label="Biblioteca" />
           <q-route-tab to="/cafeteria" label="Cafeteria" />
+          <q-route-tab to="/enfermeria" label="Enfermería" />
         </q-tabs>
 
       </q-toolbar>
     </q-header>
+
+    
 
     <q-page-container>
       <router-view />
