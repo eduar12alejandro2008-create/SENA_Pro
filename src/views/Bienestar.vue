@@ -17,65 +17,114 @@
       </p>
     </div>
 
+    <div class="bg-grey-2">
+      <div class="content-section">
+        <div class="row q-col-gutter-lg">
+        <div class="col-12 col-md-4">
+          <q-card flat bordered class="q-pa-md full-height">
+            <q-icon name="flag" size="32px" color="primary" class="q-mb-sm" />
+            <div class="text-subtitle1 text-weight-bold q-mb-xs">Misión</div>
+            <p class="text-body2 text-grey-9">
+              El SENA está encargado de cumplir la función que le corresponde al
+              Estado de invertir en el desarrollo social y técnico de los
+              trabajadores colombianos, ofreciendo y ejecutando la formación
+              profesional integral para la incorporación y el desarrollo de las
+              personas en actividades productivas que contribuyan al desarrollo
+              social, económico y tecnológico del país.
+            </p>
+          </q-card>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <q-card flat bordered class="q-pa-md full-height">
+            <q-icon name="visibility" size="32px" color="primary" class="q-mb-sm" />
+            <div class="text-subtitle1 text-weight-bold q-mb-xs">Visión</div>
+            <p class="text-body2 text-grey-9">
+              Para el año 2026, el SENA estará a la vanguardia de la cualificación
+              del talento humano, tanto a nivel nacional como internacional, a
+              través de la formación profesional integral, el empleo, el
+              emprendimiento y el reconocimiento de aprendizajes previos.
+            </p>
+          </q-card>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <q-card flat bordered class="q-pa-md full-height">
+            <q-icon name="track_changes" size="32px" color="primary" class="q-mb-sm" />
+            <div class="text-subtitle1 text-weight-bold q-mb-xs">Objetivo</div>
+            <p class="text-body2 text-grey-9">
+              Generar valor público y fortalecer la economía, con un enfoque
+              diferencial orientado a la transformación productiva, dando
+              formación profesional integral que aumente la productividad
+              nacional y promueva el desarrollo económico y social del país.
+            </p>
+          </q-card>
+        </div>
+        </div>
+      </div>
+    </div>
+
     <div class="content-section">
       <div class="row q-col-gutter-lg items-center">
 
         <div class="col-12 col-md-5">
-          <q-img
-            src="../assets/bienestar-aprendiz-p.jpeg"
-            ratio="4/3"
-            class="rounded-borders"
-          >
-            <template v-slot:error>
-              <div class="absolute-full flex flex-center bg-grey-3 text-grey-7">
-                <q-icon name="image" size="48px" />
-              </div>
-            </template>
-          </q-img>
+          <img
+            src="../assets/bienestarulto.jpg"
+            alt="Bienestar al aprendiz"
+            class="rounded-borders foto-servicio"
+          />
         </div>
 
         <div class="col-12 col-md-7">
           <h2 class="text-primary">¿Qué es Bienestar al Aprendiz?</h2>
           <p class="text-body1">
-            Bienestar al Aprendiz es el área del SENA encargada de acompañar a los
-            aprendices durante su formación, ofreciendo apoyo psicosocial, deportivo,
-            cultural y de salud. Su objetivo es garantizar que el aprendiz cuente con
-            las condiciones necesarias para culminar su proceso formativo de manera
-            integral, atendiendo situaciones que puedan afectar su permanencia en el
-            centro de formación.
+            Bienestar al Aprendiz es una estrategia institucional para contribuir en la
+            permanencia de los aprendices en su proceso formativo. Sus servicios están
+            alineados con la Política Nacional Integral de Bienestar al Aprendiz: el
+            reconocimiento de la cultura como creadora de identidad e inclusión; la
+            prevención de la enfermedad y promoción de la salud física y mental; el
+            fortalecimiento de habilidades blandas y para la vida; el deporte y el
+            aprovechamiento del tiempo libre; y la promoción de expresiones artísticas.
+            También se manejan apoyos socioeconómicos (sostenimiento, FIC, medios
+            tecnológicos, alimentación y transporte), monitorías y liderazgo.
           </p>
         </div>
 
       </div>
     </div>
 
-    <div class="content-section">
-      <h3 class="text-primary">Horarios de atención</h3>
-      <q-list bordered separator class="rounded-borders">
-        <q-item v-for="h in horarios" :key="h.dia">
-          <q-item-section>{{ h.dia }}</q-item-section>
-          <q-item-section side>{{ h.hora }}</q-item-section>
-        </q-item>
-      </q-list>
+    <div class="bg-grey-2">
+      <div class="content-section">
+        <h3 class="text-primary">Horarios de atención</h3>
+        <q-list bordered separator class="rounded-borders bg-white">
+          <q-item v-for="h in horarios" :key="h.area">
+            <q-item-section>{{ h.area }}</q-item-section>
+            <q-item-section side>{{ h.hora }}</q-item-section>
+          </q-item>
+        </q-list>
+      </div>
     </div>
 
     <div class="content-section">
-      <h3 class="text-primary">Encargado de atención</h3>
-      <q-card flat bordered class="q-pa-md">
-        <div class="row items-center q-col-gutter-md">
-          <q-avatar size="80px" color="grey-4" text-color="grey-8" icon="person" />
-          <div class="col">
-            <div class="text-weight-bold">{{ encargado.nombre }}</div>
-            <div>{{ encargado.cargo }}</div>
-            <div class="text-primary">{{ encargado.correo }}</div>
-          </div>
+      <h3 class="text-primary">Encargada de atención</h3>
+      <q-card flat bordered class="encargado-card q-pa-xl flex flex-center" style="max-width: 420px; margin: 0 auto;">
+        <div class="column items-center text-center">
+          <img
+            src="../assets/bienestar-aprendiz-p.jpeg"
+            alt="María Delia Arenas Mejía"
+            class="foto-encargada q-mb-md"
+          />
+          <div class="text-h6 text-weight-bold">{{ encargado.nombre }}</div>
+          <div class="text-body1 text-grey-8 q-mb-sm">{{ encargado.cargo }}</div>
+          <div class="text-subtitle1 text-primary">{{ encargado.correo }}</div>
+          <div class="text-subtitle1 text-grey-8">{{ encargado.telefono }}</div>
         </div>
       </q-card>
     </div>
 
   </q-page>
 
-  <footer class="bg-dark text-white q-pa-lg">
+  <footer class="bg-grey-9 text-white q-pa-lg">
     <div class="row q-col-gutter-lg">
 
       <div class="col-12 col-md-8">
@@ -96,8 +145,7 @@
         <div class="row q-gutter-md text-caption">
           <span>Facebook: @SENA</span>
           <span>Instagram: @SENACOMUNICA</span>
-          <span>WhatsApp: 3176377670</span>
-          <span>Correo: mdarenas@sena.edu.com</span>
+          <span>WhatsApp: 305 809 24 44</span>
         </div>
       </div>
 
@@ -117,24 +165,24 @@
 
 <script setup>
 const horarios = [
-  { dia: 'Lunes', hora: '8:00 a.m. - 12:30 p.m. y 2:00 p.m. - 5:30 p.m.' },
-  { dia: 'Martes', hora: '8:00 a.m. - 12:30 p.m. y 2:00 p.m. - 5:30 p.m.' },
-  { dia: 'Miércoles', hora: '8:00 a.m. - 12:30 p.m. y 2:00 p.m. - 5:30 p.m.' },
-  { dia: 'Jueves', hora: '8:00 a.m. - 12:30 p.m. y 2:00 p.m. - 5:30 p.m.' },
-  { dia: 'Viernes', hora: '8:00 a.m. - 12:30 p.m. y 2:00 p.m. - 5:30 p.m.' }
+  { area: 'Enfermería (sede principal)', hora: '6:30 a.m. - 10:30 a.m. y 4:00 p.m. - 8:00 p.m.' },
+  { area: 'Enfermería (Unisangil)', hora: '8:00 a.m. - 12:00 p.m. y 4:00 p.m. - 8:00 p.m.' },
+  { area: 'Apoyos socioeconómicos', hora: '8:00 a.m. - 12:00 p.m. y 2:00 p.m. - 6:00 p.m.' },
+  { area: 'Líder de bienestar al aprendiz', hora: '7:30 a.m. - 12:00 p.m. y 2:00 p.m. - 6:00 p.m.' }
 ]
 
 const encargado = {
-  nombre: 'Nombre completo del encargado',
-  cargo: 'Encargado(a) de Bienestar al Aprendiz',
-  correo: 'correo@sena.edu.co'
+  nombre: 'María Delia Arenas Mejía',
+  cargo: 'Líder de bienestar al aprendiz',
+  correo: 'mdarenas@sena.edu.com',
+  telefono: '317 637 7670'
 }
 </script>
 
 <style scoped>
 .hero-bg {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-    url('../assets/hero.png');
+  background-image: linear-gradient(rgba(30, 40, 30, 0.55), rgba(30, 40, 30, 0.55)),
+    url('../assets/ini-sena.png');
   background-size: cover;
   background-position: center;
   min-height: 300px;
@@ -147,5 +195,29 @@ const encargado = {
   max-width: 1200px;
   margin: 0 auto;
   padding: 32px 16px;
+}
+
+.encargado-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.encargado-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  background-color: #f2f2f2;
+}
+
+.foto-servicio {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.foto-encargada {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 </style>
