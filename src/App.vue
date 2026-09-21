@@ -20,6 +20,7 @@
           <q-route-tab to="/biblioteca" label="Biblioteca" />
           <q-route-tab to="/cafeteria" label="Cafeteria" />
           <q-route-tab to="/enfermeria" label="Enfermería" />
+          <q-route-tab to="/acerca" label="acerca" />
         </q-tabs>
 
       </q-toolbar>
@@ -30,7 +31,6 @@
     <q-page-container>
       <router-view />
     </q-page-container>
-
   </q-layout>
 </template>
 
